@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "title": "Samarth Anand Borade | AI Engineer & Computer Science Graduate",
+    "description": "Portfolio website showcasing AI engineering projects, machine learning research, and full-stack development work"
+  },
+  "personal": {
+    "name": "Samarth Anand Borade",
+    "title": "AI Engineer & Computer Science Graduate",
+    "location": "Los Angeles, CA",
+    "avatar": "/confident-professional.png",
+    "email": "borade@usc.edu",
+    "phone": "(213) 476-2975",
+    "workingHours": "Monday - Friday, 9am - 6pm PST",
+    "availableForWork": true,
+    "badges": ["AI/ML", "Full-Stack Development", "Research"],
+    "social": [
+      {
+        "platform": "GitHub",
+        "url": "#",
+        "icon": "Github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com/in/samarthborade",
+        "icon": "Linkedin"
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "icon": "Twitter"
+      },
+      {
+        "platform": "Instagram",
+        "url": "#",
+        "icon": "Instagram"
+      }
+    ]
+  },
+  "about": {
+    "bio": "AI Engineer and Computer Science graduate student at USC with expertise in machine learning, full-stack development, and research. Passionate about building AI-powered applications and contributing to cutting-edge research in automated systems and data science.",
+    "focus": [
+      "Developing AI-powered applications and intelligent systems",
+      "Building full-stack web applications with modern technologies",
+      "Conducting research in machine learning and automated classification systems"
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "Fluent",
+        "level": 95,
+        "flag": "🇺🇸"
+      },
+      {
+        "name": "Hindi",
+        "proficiency": "Native",
+        "level": 100,
+        "flag": "🇮🇳"
+      },
+      {
+        "name": "Marathi",
+        "proficiency": "Native",
+        "level": 100,
+        "flag": "🇮🇳"
+      }
+    ],
+    "interests": ["Machine Learning", "AI Research", "Full-Stack Development", "Data Science", "Content Creation"]
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Publications",
+      "href": "#publications"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects"
+    }
+  ],
+  "experience": [
+    {
+      "title": "AI Engineer Intern",
+      "company": "Ai-Horizon.io, Nexasprint Technologies Pvt Ltd",
+      "period": "June 2024 - September 2024",
+      "description": "Accelerated development of a platform for AI Agents and agentic frameworks including RAG, RLHF, and LLM applications across industries such as insurance, logistics, and finance. Played a key role in increasing company's valuation to $2.4 million within three months.",
+      "achievements": [
+        "Developed 40+ AI agents and worked on core packages for the platform",
+        "Focused on integrating LLMs into practical applications across multiple industries",
+        "Contributed to significant company growth and valuation increase"
+      ],
+      "technologies": ["Python", "LangChain", "HuggingFace", "LlamaIndex", "TensorFlow", "PyTorch"]
+    },
+    {
+      "title": "Data Scientist Intern",
+      "company": "Allcargo Logistics Ltd",
+      "period": "December 2022 - June 2023",
+      "description": "Interned in the Data Science team, gaining practical skills in Power BI, dashboards, DAX language, and advanced Python. Analyzed logistics data to optimize transportation, warehousing, and distribution processes.",
+      "achievements": [
+        "Achieved 10% improvement in delivery efficiency through data analysis",
+        "Reduced operational delays by 15% through process optimization",
+        "Built comprehensive dashboards for logistics performance monitoring"
+      ],
+      "technologies": ["Power BI", "Python", "DAX", "Pandas", "NumPy", "Statistical Analysis"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "omni-ai",
+      "title": "OMNI.ai - Powered Website Generator",
+      "description": "Full-stack app that converts natural language prompts into live websites with real-time in-browser code execution and preview using WebAssembly-powered WebContainer, all in under 2 minutes.",
+      "longDescription": "Built a comprehensive website generation platform that leverages AI to transform natural language descriptions into fully functional websites. The system uses WebAssembly-powered WebContainer for real-time code execution and preview, enabling users to see their websites come to life instantly.",
+      "image": "/modern-finance-app.png",
+      "category": "AI/Web Development",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Vite",
+        "Yarn",
+        "WebContainer",
+        "WebAssembly",
+        "GPT",
+        "Claude",
+        "Groq",
+        "Ollama"
+      ],
+      "period": "November 2024 - March 2025",
+      "status": "Completed",
+      "featured": true,
+      "links": {
+        "github": "#",
+        "demo": "#"
+      },
+      "highlights": [
+        "Real-time code execution using WebAssembly",
+        "Support for multiple AI models (GPT, Claude, Groq, Ollama)",
+        "Complete website generation in under 2 minutes",
+        "Team collaboration with 4 developers"
+      ]
+    },
+    {
+      "id": "synthmaster",
+      "title": "SynthMaster - AI Dataset Creation Tool",
+      "description": "Synthetic dataset creation tool integrating over 50 conversational formats across various LLMs with customizable GPU and cloud selection options.",
+      "longDescription": "Developed a comprehensive tool for creating synthetic datasets with support for over 50 different conversational formats. The platform offers flexibility in model choice, GPU selection, and cloud deployment options, making it highly versatile for various AI training scenarios.",
+      "image": "/modern-finance-overview.png",
+      "category": "AI/Data Science",
+      "technologies": ["Python", "LLMs", "Cloud Computing", "GPU Computing", "Data Processing"],
+      "period": "August 2024 - September 2024",
+      "status": "Completed",
+      "featured": true,
+      "links": {
+        "github": "#"
+      },
+      "highlights": [
+        "Integration of 50+ conversational formats",
+        "Customizable GPU and cloud selection",
+        "Support for multiple LLM models",
+        "Enhanced flexibility and user control"
+      ]
+    },
+    {
+      "id": "datasculptor",
+      "title": "DataSculptor - LLM Dataset Curator",
+      "description": "Tool for cleaning and curating 20+ LLM-generated datasets with PII detection, toxicity filtering, and semantic search capabilities.",
+      "longDescription": "Engineered a sophisticated data curation platform that automatically cleans and processes LLM-generated datasets. The tool incorporates advanced features like PII detection, toxicity filtering, language identification, and semantic search to ensure high-quality, safe datasets for AI model training.",
+      "image": "/modern-apparel-storefront.png",
+      "category": "AI/Data Science",
+      "technologies": ["Python", "NLP", "Machine Learning", "Data Processing", "Semantic Search"],
+      "period": "June 2024 - July 2024",
+      "status": "Completed",
+      "featured": true,
+      "links": {
+        "github": "#"
+      },
+      "highlights": [
+        "Automated PII detection and removal",
+        "Toxicity filtering across thousands of records",
+        "Language identification capabilities",
+        "Semantic search integration"
+      ]
+    },
+    {
+      "id": "chatzilla",
+      "title": "ChatZilla - NLP Data Query System",
+      "description": "NLP-based assistant capable of querying data from structured formats like Excel and CSV files using LLMs for data interpretation.",
+      "longDescription": "Created an intelligent data query system that uses natural language processing to interact with structured data files. The system leverages LLMs to interpret and analyze data from Excel and CSV files, making data analysis more accessible through conversational interfaces.",
+      "image": "/job-finder-screen2.png",
+      "category": "AI/NLP",
+      "technologies": ["Python", "NLP", "LLMs", "Data Analysis", "Excel", "CSV Processing"],
+      "period": "April 2024",
+      "status": "Completed",
+      "featured": false,
+      "links": {
+        "github": "#"
+      },
+      "highlights": [
+        "Natural language data querying",
+        "Support for Excel and CSV formats",
+        "LLM-powered data interpretation",
+        "Automated data analysis capabilities"
+      ]
+    },
+    {
+      "id": "who-voice-id",
+      "title": "WHO - Voice Identification System",
+      "description": "CNN-based system to identify speakers from 3-second audio clips using spectrograms with data augmentation on 500+ audio samples.",
+      "longDescription": "Developed a sophisticated voice identification system using Convolutional Neural Networks. The system analyzes spectrograms generated from short audio clips to accurately identify speakers, with robust data augmentation techniques applied to enhance model performance and accuracy.",
+      "image": "/job-finder-screen3.png",
+      "category": "AI/Audio Processing",
+      "technologies": ["Python", "CNN", "TensorFlow", "Audio Processing", "Spectrograms", "Data Augmentation"],
+      "period": "February 2024",
+      "status": "Completed",
+      "featured": false,
+      "links": {
+        "github": "#"
+      },
+      "highlights": [
+        "CNN-based speaker identification",
+        "3-second audio clip processing",
+        "Data augmentation on 500+ samples",
+        "Spectrogram analysis techniques"
+      ]
+    },
+    {
+      "id": "simulation-dashboard",
+      "title": "Simulation Operations Dashboard",
+      "description": "Power BI dashboard with machine learning forecasting for monthly data trends to support operational planning.",
+      "longDescription": "Built a comprehensive 8-page Power BI dashboard featuring advanced visualizations including bar graphs, line charts, and interactive slicers. The dashboard incorporates machine learning models for trend forecasting and enables users to explore data at granular levels for informed decision-making.",
+      "image": "/finance-dashboard-cover.png",
+      "category": "Data Science/BI",
+      "technologies": ["Power BI", "Machine Learning", "Data Visualization", "Forecasting", "DAX"],
+      "period": "January 2023",
+      "status": "Completed",
+      "featured": false,
+      "links": {
+        "demo": "#"
+      },
+      "highlights": [
+        "8-page comprehensive dashboard",
+        "ML-powered trend forecasting",
+        "Interactive data exploration",
+        "Granular data analysis capabilities"
+      ]
+    },
+    {
+      "id": "dynamic-pricing",
+      "title": "Dynamic Price Scoring System",
+      "description": "Sales performance evaluation tool using dynamic pricing strategies, analyzing 10,000+ transactions for revenue optimization.",
+      "longDescription": "Developed an advanced pricing optimization system that evaluates sales performance and customer behavior through dynamic pricing strategies. The system analyzes market demand and supply metrics from over 10,000 transactions to optimize pricing decisions and improve competitiveness.",
+      "image": "/finance-dashboard-screen1.png",
+      "category": "Data Science/Business",
+      "technologies": ["Python", "Data Analysis", "Machine Learning", "Business Intelligence", "Statistical Analysis"],
+      "period": "December 2022 - January 2023",
+      "status": "Completed",
+      "featured": false,
+      "links": {
+        "github": "#"
+      },
+      "highlights": [
+        "Analysis of 10,000+ transactions",
+        "5-8% increase in revenue per shipment",
+        "Market demand and supply optimization",
+        "Dynamic pricing strategy implementation"
+      ]
+    }
+  ],
+  "credentials": {
+    "certifications": [
+      {
+        "name": "Google Cloud Community Day Workshop",
+        "issuer": "Google Cloud",
+        "date": "2023",
+        "logo": "/generic-military-logo.png"
+      },
+      {
+        "name": "Coding Workshop Instructor",
+        "issuer": "Self-Organized",
+        "date": "2023",
+        "logo": "/generic-art-school-logo.png"
+      },
+      {
+        "name": "Blockchain Fundamentals Speaker",
+        "issuer": "Online Seminar",
+        "date": "2023",
+        "logo": "/nng-logo.png"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Science in Computer Science",
+        "institution": "University of Southern California",
+        "year": "August 2025 - Present",
+        "logo": "/calarts-logo.png"
+      },
+      {
+        "degree": "Bachelor of Technology in Computer Engineering",
+        "institution": "SVKM's Mukesh Patel School of Technology Management",
+        "year": "January 2022 - December 2025",
+        "logo": "/generic-art-school-logo.png"
+      },
+      {
+        "degree": "Diploma in Computer Engineering",
+        "institution": "SVKM's Mukesh Patel School of Technology Management",
+        "year": "January 2019 - December 2021",
+        "logo": "/generic-military-logo.png"
+      }
+    ],
+    "skills": [
+      "Machine Learning",
+      "AI Development",
+      "Full-Stack Development",
+      "Data Science",
+      "Research",
+      "Python Programming",
+      "Web Development",
+      "Data Analysis"
+    ]
+  },
+  "technicalSkills": {
+    "development": ["Python", "JavaScript", "C", "C++", "React", "Node.js", "HTML", "CSS", "Bootstrap"],
+    "design": ["Figma", "Photoshop", "Adobe After Effects", "UI/UX Design"],
+    "uxMethods": ["TensorFlow", "PyTorch", "LangChain", "HuggingFace", "LlamaIndex", "Power BI", "Pandas", "NumPy"],
+    "softSkills": [
+      "Research",
+      "Technical Writing",
+      "Team Leadership",
+      "Content Creation",
+      "Public Speaking",
+      "Mentoring"
+    ]
+  },
+  "publications": {
+    "research": [
+      {
+        "title": "Automated Classification of Musical Genres: A Machine Learning Approach with Random Forest and Feature Engineering",
+        "type": "Research Paper",
+        "publisher": "Springer ICRTCIS 2024 proceedings (Algorithms for Intelligent Systems series)",
+        "period": "December 2023 - May 2024",
+        "description": "Published research on automated classification of musical genres using Random Forest and feature engineering techniques.",
+        "isbn": {
+          "hardcover": "978-981-97-7631-3",
+          "ebook": "978-981-97-7632-0"
+        },
+        "logo": "/generic-art-school-logo.png"
+      }
+    ],
+    "articles": [
+      {
+        "title": "Welcome to the AI Wonderland Series",
+        "type": "Technical Writing",
+        "platform": "Medium",
+        "period": "2024 - Present",
+        "description": "Initiated a series of articles aimed at demystifying complex AI concepts, focusing on LLMs and Generative AI.",
+        "url": "https://medium.com/@samarthborade007",
+        "logo": "/nng-logo.png"
+      },
+      {
+        "title": "Power BI Articles Series",
+        "type": "Technical Writing",
+        "platform": "Medium",
+        "period": "2023",
+        "description": "Published a series with ~16.8k views; featured by the Microsoft Power BI publication.",
+        "views": "16.8k",
+        "featured": "Microsoft Power BI publication",
+        "url": "https://medium.com/@samarthborade007",
+        "logo": "/generic-military-logo.png"
+      }
+    ],
+    "skills": [
+      "Research & Development",
+      "Technical Writing",
+      "Machine Learning Research",
+      "AI Content Creation",
+      "Data Science Communication",
+      "Academic Publishing"
+    ]
+  }
+}
