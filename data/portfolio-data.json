@@ -12,7 +12,13 @@
     "phone": "(213) 476-2975",
     "workingHours": "Monday - Friday, 9am - 6pm PST",
     "availableForWork": true,
-    "badges": ["AI/ML", "Full-Stack Development", "Research"],
+    "badges": [
+      "AI/ML",
+      "Full-Stack Development",
+      "Research",
+      "Data Science & Analytics",
+      "Creative Tech / Media"
+    ],
     "social": [
       {
         "platform": "GitHub",
@@ -119,7 +125,7 @@
       "title": "OMNI.ai - Powered Website Generator",
       "description": "Full-stack app that converts natural language prompts into live websites with real-time in-browser code execution and preview using WebAssembly-powered WebContainer, all in under 2 minutes.",
       "longDescription": "Built a comprehensive website generation platform that leverages AI to transform natural language descriptions into fully functional websites. The system uses WebAssembly-powered WebContainer for real-time code execution and preview, enabling users to see their websites come to life instantly.",
-      "image": "/omni-logo.png",
+      "image": "/finance-dashboard-cover.png",
       "category": "AI/Web Development",
       "technologies": [
         "React",
@@ -152,14 +158,15 @@
       "title": "SynthMaster - AI Dataset Creation Tool",
       "description": "Synthetic dataset creation tool integrating over 50 conversational formats across various LLMs with customizable GPU and cloud selection options.",
       "longDescription": "Developed a comprehensive tool for creating synthetic datasets with support for over 50 different conversational formats. The platform offers flexibility in model choice, GPU selection, and cloud deployment options, making it highly versatile for various AI training scenarios.",
-      "image": "/modern-finance-overview.png",
+      "image": "/finance-dashboard-cover.png",
       "category": "AI/Data Science",
       "technologies": ["Python", "LLMs", "Cloud Computing", "GPU Computing", "Data Processing"],
       "period": "August 2024 - September 2024",
       "status": "Completed",
       "featured": true,
       "links": {
-        "github": "#"
+        "github": "#",
+        "demo": "https://drive.google.com/file/d/1Php0f9mEwawmufCecT2iaoyZsH7fNBfN/view"
       },
       "highlights": [
         "Integration of 50+ conversational formats",
@@ -201,7 +208,8 @@
       "status": "Completed",
       "featured": false,
       "links": {
-        "github": "#"
+        "github": "https://drive.google.com/file/d/1kWaOuKQ2q5zM8zNeoyqgyALNAH5jXnyE/view",
+        "demo": "https://drive.google.com/file/d/1kWaOuKQ2q5zM8zNeoyqgyALNAH5jXnyE/view"
       },
       "highlights": [
         "Natural language data querying",

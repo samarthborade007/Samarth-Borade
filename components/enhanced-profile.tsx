@@ -1,33 +1,83 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SocialLinks } from "@/components/social-links"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { User, MapPin, Mail, Phone, Languages, Clock, Briefcase } from "lucide-react"
+import { User, MapPin, Mail, Phone, Languages, Clock, Briefcase, Download } from "lucide-react"
 import { getPersonalInfo, getAboutInfo } from "@/lib/data"
 
 export function EnhancedProfile() {
   const [activeTab, setActiveTab] = useState("about")
+  const [avatarOpen, setAvatarOpen] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
+
+  const [tooltipVisible, setTooltipVisible] = useState(false)
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
+
+  const ANIM_DURATION = 300
+
+  function startClose() {
+    setIsClosing(true)
+    setTimeout(() => {
+      setAvatarOpen(false)
+      setIsClosing(false)
+      if (typeof document !== "undefined") document.body.style.overflow = ""
+    }, ANIM_DURATION)
+  }
 
   const personalInfo = getPersonalInfo()
   const aboutInfo = getAboutInfo()
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") startClose()
+    }
+    if (avatarOpen) {
+      window.addEventListener("keydown", onKey)
+      // prevent background scroll when lightbox open
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      window.removeEventListener("keydown", onKey)
+      document.body.style.overflow = ""
+    }
+  }, [avatarOpen])
+
   return (
-    <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm col-span-1 flex flex-col">
+    <>
+      <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm col-span-1 flex flex-col">
       <CardContent className="p-0">
         {/* Profile Header - Improved mobile layout */}
         <div className="bg-gradient-to-r from-zinc-800/50 to-zinc-900/50 p-4 sm:p-6 flex flex-col items-center border-b border-zinc-800">
           <div className="flex flex-col sm:flex-col items-center w-full">
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-cyan-400/20 ring-4 ring-zinc-800/50">
-              <Image
-                src={personalInfo.avatar || "/placeholder.svg"}
-                alt={personalInfo.name}
-                fill
-                className="object-cover"
-              />
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsClosing(false)
+                  setAvatarOpen(true)
+                }}
+                onMouseEnter={() => setTooltipVisible(true)}
+                onMouseLeave={() => setTooltipVisible(false)}
+                onMouseMove={(e) => {
+                  setTooltipPos({ x: e.clientX, y: e.clientY })
+                }}
+                className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-cyan-400/20 ring-4 ring-zinc-800/50 focus:outline-none"
+                aria-label="Open profile image"
+              >
+                <Image
+                  src={personalInfo.avatar || "/placeholder.svg"}
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover"
+                />
+              </button>
             </div>
             <div className="text-center">
               <h2 className="text-xl sm:text-2xl font-bold">{personalInfo.name}</h2>
@@ -48,6 +98,19 @@ export function EnhancedProfile() {
           </div>
 
           <SocialLinks socialLinks={personalInfo.social} />
+
+          {/* Resume download button centered under social icons */}
+          <div className="flex justify-center mt-2">
+            <a
+              href="/Samarth Borade-CV.pdf"
+              download
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors text-sm"
+              aria-label="Download Resume"
+            >
+              <Download className="w-4 h-4" />
+              <span>Resume</span>
+            </a>
+          </div>
         </div>
 
         {/* Tabbed Content - Mobile optimized */}
@@ -170,7 +233,7 @@ export function EnhancedProfile() {
           </TabsContent>
         </Tabs>
 
-        {/* Profile Footer - Availability Status */}
+    {/* Profile Footer - Availability Status */}
         <div className="p-3 sm:p-4 border-t border-zinc-800 flex items-center justify-center">
           <div className="flex items-center">
             <span
@@ -182,6 +245,47 @@ export function EnhancedProfile() {
           </div>
         </div>
       </CardContent>
-    </Card>
+      </Card>
+      {avatarOpen &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm"
+            onClick={() => startClose()}
+          >
+            <div
+              className={`p-4 rounded-full transform transition-all ease-out ${
+                isClosing ? "scale-90 opacity-0" : "scale-100 opacity-100"
+              }`}
+              onClick={(e) => e.stopPropagation()}
+              style={{ transitionDuration: `${ANIM_DURATION}ms` }}
+            >
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-cyan-400/30 shadow-2xl bg-black">
+                <Image
+                  src={personalInfo.avatar || "/placeholder.svg"}
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
+
+      {/* Separate portal for the tooltip so it appears on hover even when the overlay is closed */}
+      {typeof document !== "undefined" &&
+        tooltipVisible &&
+        createPortal(
+          <div
+            style={{ left: `${tooltipPos.x + 12}px`, top: `${tooltipPos.y + 12}px`, position: "fixed" }}
+            className="z-[10000] pointer-events-none"
+          >
+            <div className="bg-zinc-900/90 text-xs text-zinc-200 px-2 py-1 rounded shadow">
+              your friendly neighborhood engineer
+            </div>
+          </div>,
+          document.body
+        )}
+    </>
   )
 }

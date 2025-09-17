@@ -63,11 +63,11 @@ const projects: Project[] = [
       "Groq",
       "Ollama",
     ],
-    coverImage: "/omni-ai-cover.png",
-    thumbnailImage: "/modern-finance-app.png",
+    coverImage: "/omni-logo.png",
+    thumbnailImage: "/omni-logo.png",
     timeline: "November 2024 - March 2025",
     role: "Full-Stack Developer & AI Integration Specialist",
-    githubUrl: "https://github.com/samarthborade/omni-ai",
+    githubUrl: "https://drive.google.com/file/d/1ikQS_efMTBtczdI70U9cSGGCqTG6B0Md/view?usp=sharing",
     relatedProjects: [
       {
         slug: "synthmaster-dataset-tool",
@@ -108,7 +108,8 @@ const projects: Project[] = [
     thumbnailImage: "/modern-finance-overview.png",
     timeline: "August 2024 - September 2024",
     role: "AI Engineer & Tool Developer",
-    relatedProjects: [
+  githubUrl: "https://drive.google.com/file/d/1Php0f9mEwawmufCecT2iaoyZsH7fNBfN/view",
+  relatedProjects: [
       {
         slug: "datasculptor-cleaning-tool",
         title: "DataSculptor - LLM Dataset Curator",
@@ -148,6 +149,7 @@ const projects: Project[] = [
     thumbnailImage: "/modern-apparel-storefront.png",
     timeline: "June 2024 - July 2024",
     role: "Data Scientist & ML Engineer",
+    
     relatedProjects: [
       {
         slug: "synthmaster-dataset-tool",
@@ -188,6 +190,8 @@ const projects: Project[] = [
     thumbnailImage: "/job-finder-screen2.png",
     timeline: "April 2024",
     role: "NLP Developer & Data Analyst",
+      githubUrl: "https://drive.google.com/file/d/1kWaOuKQ2q5zM8zNeoyqgyALNAH5jXnyE/view",
+
     relatedProjects: [
       {
         slug: "omni-ai-website-generator",
@@ -228,6 +232,7 @@ const projects: Project[] = [
     thumbnailImage: "/job-finder-screen3.png",
     timeline: "February 2024",
     role: "ML Engineer & Audio Processing Specialist",
+    githubUrl: "https://drive.google.com/file/d/1YZ1e2EUTG4upNHysxorLZ-pqscVYzE6F/view",
     relatedProjects: [
       {
         slug: "datasculptor-cleaning-tool",

@@ -13,7 +13,12 @@ const metaInfo = getMetaInfo()
 export const metadata: Metadata = {
   title: metaInfo.title,
   description: metaInfo.description,
-    generator: 'v0.app'
+    generator: 'v0.app',
+    icons: {
+      icon: "/sb.ico",
+      shortcut: "/sb.ico",
+      apple: "/sb.ico",
+    },
 }
 
 export default function RootLayout({

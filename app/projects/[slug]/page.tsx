@@ -111,8 +111,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       {project.githubUrl && (
                         <Button asChild variant="outline" size="sm" className="text-xs sm:text-sm bg-transparent">
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                            View Source Code
+                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                            View Demo
                           </a>
                         </Button>
                       )}
