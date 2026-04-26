@@ -1,23 +1,25 @@
 {
   "meta": {
-    "title": "Samarth Borade | AI Engineer & Computer Science Graduate",
-    "description": "Portfolio website showcasing AI engineering projects, machine learning research, and full-stack development work"
+    "title": "Samarth Borade — AI Engineer",
+    "description": "AI Engineer & MS Computer Science @ USC. I ship production LLM systems, agentic frameworks, and ML platforms. Co-author of 'Age of Agentic AI'."
   },
   "personal": {
     "name": "Samarth Borade",
-    "title": "AI Engineer & Computer Science Graduate",
+    "title": "AI Engineer",
+    "subtitle": "Builds agentic systems, ML platforms & production LLM pipelines.",
     "location": "Los Angeles, CA",
     "avatar": "/confident-professional.png",
     "email": "borade@usc.edu",
     "phone": "(213) 476-2975",
-    "workingHours": "Monday - Friday, 9am - 6pm PST",
+    "workingHours": "Monday – Friday · 9am – 6pm PST",
     "availableForWork": true,
+    "tagline": "Available for Summer 2026 internships & new collaborations",
     "badges": [
-      "AI/ML",
-      "Full-Stack Development",
-      "Research",
-      "Data Science & Analytics",
-      "Creative Tech / Media"
+      "Agentic AI",
+      "LLM Systems",
+      "MLOps",
+      "Full-Stack",
+      "Research"
     ],
     "social": [
       {
@@ -43,11 +45,12 @@
     ]
   },
   "about": {
-    "bio": "AI Engineer and Computer Science graduate student at USC with expertise in machine learning, full-stack development, and research. Passionate about building AI-powered applications and contributing to cutting-edge research in automated systems and data science.",
+    "bio": "I'm an AI Engineer and MS Computer Science student at the University of Southern California. I design and ship production-grade LLM systems — agentic frameworks, RAG pipelines, ML platforms — the kind that survive contact with real users.",
+    "subBio": "Previously founding engineer at Ai-Horizon (drove a $2.4M seed valuation in 3 months), data scientist at Allcargo Logistics, and Merit Scholar in the top 5% of my B.Tech cohort. Co-author of the upcoming Amazon book 'Age of Agentic AI'.",
     "focus": [
-      "Developing AI-powered applications and intelligent systems",
-      "Building full-stack web applications with modern technologies",
-      "Conducting research in machine learning and automated classification systems"
+      "Architecting multi-agent LLM systems with persistent memory & tool routing",
+      "Building end-to-end ML platforms — training, evaluation, deployment, drift",
+      "Researching agentic AI patterns & publishing for working ML engineers"
     ],
     "languages": [
       {
@@ -69,54 +72,56 @@
         "flag": "🇮🇳"
       }
     ],
-    "interests": ["Machine Learning", "AI Research", "Full-Stack Development", "Data Science", "Content Creation"]
+    "interests": ["Agentic AI", "LLM Infra", "ML Research", "Data Science", "Technical Writing"]
   },
   "navigation": [
     {
-      "label": "Home",
+      "label": "Index",
       "href": "/"
+    },
+    {
+      "label": "Work",
+      "href": "#work"
     },
     {
       "label": "Experience",
       "href": "#experience"
     },
     {
-      "label": "Publications",
-      "href": "#publications"
+      "label": "Writing",
+      "href": "#writing"
     },
     {
-      "label": "Skills",
-      "href": "#skills"
-    },
-    {
-      "label": "Projects",
-      "href": "/projects"
+      "label": "Contact",
+      "href": "#contact"
     }
   ],
   "experience": [
     {
-      "title": "AI Engineer Intern",
-      "company": "Ai-Horizon.io, Nexasprint Technologies Pvt Ltd",
-      "period": "June 2024 - September 2024",
-      "description": "Accelerated development of a platform for AI Agents and agentic frameworks including RAG, RLHF, and LLM applications across industries such as insurance, logistics, and finance. Played a key role in increasing company's valuation to $2.4 million within three months.",
+      "title": "AI Engineer Intern & Founding Engineer",
+      "company": "Ai-Horizon.io  ·  Nexasprint Technologies",
+      "location": "Mumbai, India",
+      "period": "Jun 2024 — Sep 2024",
+      "description": "Founding engineer on an agentic AI platform spanning insurance, logistics, and finance. Architected the core LLM/agent layer that became the company's primary product offering and helped drive a $2.4M seed valuation in 3 months.",
       "achievements": [
-        "Developed 40+ AI agents and worked on core packages for the platform",
-        "Focused on integrating LLMs into practical applications across multiple industries",
-        "Contributed to significant company growth and valuation increase"
+        "Shipped 40+ production AI agents using LLM pipelines, RAG, and RLHF; drove $2.4M seed valuation in 3 months.",
+        "Architected the neural-network-backed agentic framework + LangChain LLM layer from scratch with prompt engineering, tool use, and vector-store retrieval — the scalable library became the company's primary product offering.",
+        "Built DataSculptor, an ML dataset cleaning pipeline with PII detection, toxicity filtering, and embedding-based deduplication across 20+ datasets / 500K+ records, cutting preprocessing time by 60%."
       ],
-      "technologies": ["Python", "LangChain", "HuggingFace", "LlamaIndex", "TensorFlow", "PyTorch"]
+      "technologies": ["Python", "LangChain", "LlamaIndex", "HuggingFace", "PyTorch", "RAG", "RLHF", "Vector DB"]
     },
     {
-      "title": "Data Scientist Intern",
+      "title": "Data Science Intern",
       "company": "Allcargo Logistics Ltd",
-      "period": "December 2022 - June 2023",
-      "description": "Interned in the Data Science team, gaining practical skills in Power BI, dashboards, DAX language, and advanced Python. Analyzed logistics data to optimize transportation, warehousing, and distribution processes.",
+      "location": "Mumbai, India",
+      "period": "Dec 2022 — Jun 2023",
+      "description": "Designed Python ETL pipelines, ML forecasting models, and Power BI dashboards for transportation and warehousing operations across 5+ hubs.",
       "achievements": [
-        "Achieved 10% improvement in delivery efficiency through data analysis",
-        "Reduced operational delays by 15% through process optimization",
-        "Built comprehensive dashboards for logistics performance monitoring"
+        "Drove 10% gain in delivery efficiency and 15% reduction in operational delays through data pipelines and dashboarding.",
+        "Built an 8-module Simulation Operations Dashboard with ML demand forecasting (MAE 8.2%) and drill-down visualizations for real-time planning.",
+        "Modeled a dynamic pricing optimization engine on 10,000+ transactions; deployed to production, lifting revenue per shipment 5–8% with zero churn increase."
       ],
-      "technologies": ["Power BI", "Python", "DAX", "Pandas", "NumPy", "Statistical Analysis"]
+      "technologies": ["Python", "Power BI", "DAX", "Pandas", "NumPy", "Time-Series", "ETL"]
     }
   ],
   "projects": [
@@ -285,111 +290,179 @@
   "credentials": {
     "certifications": [
       {
-        "name": "Google Cloud Community Day Workshop",
-        "issuer": "Google Cloud",
-        "date": "2023",
+        "name": "Transformer-Based Natural Language Processing",
+        "issuer": "NVIDIA Deep Learning Institute",
+        "date": "2024",
+        "description": "Attention mechanisms, BERT/GPT pretraining, and fine-tuning workflows.",
         "logo": "/generic-military-logo.png"
       },
       {
-        "name": "Coding Workshop Instructor",
-        "issuer": "Self-Organized",
+        "name": "Google Cloud Community Day Workshop",
+        "issuer": "Google Cloud",
         "date": "2023",
-        "logo": "/generic-art-school-logo.png"
+        "description": "Hands-on workshop on cloud-native ML deployment.",
+        "logo": "/generic-military-logo.png"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "1st Prize — DronaHQ Hackathon",
+        "year": "2020",
+        "description": "Built an Android app for paperless logistics; selected from 200+ teams."
       },
       {
-        "name": "Blockchain Fundamentals Speaker",
-        "issuer": "Online Seminar",
-        "date": "2023",
-        "logo": "/nng-logo.png"
+        "title": "Finalist — Cyber Cypher 3.0",
+        "year": "2024",
+        "description": "18-hour agentic AI build challenge."
+      },
+      {
+        "title": "Merit Scholar — Top 5% of Cohort",
+        "year": "2022 — 2025",
+        "description": "B.Tech in Computer Engineering, SVKM's MPSTME."
       }
     ],
     "education": [
       {
-        "degree": "Master of Science in Computer Science",
+        "degree": "M.S. Computer Science",
         "institution": "University of Southern California",
-        "year": "August 2025 - Present",
+        "year": "Aug 2025 — Present",
+        "location": "Los Angeles, CA",
         "logo": "/calarts-logo.png"
       },
       {
-        "degree": "Bachelor of Technology in Computer Engineering",
+        "degree": "B.Tech Computer Engineering",
         "institution": "SVKM's Mukesh Patel School of Technology Management",
-        "year": "January 2022 - December 2025",
+        "year": "Aug 2022 — May 2025",
+        "location": "Mumbai, India",
+        "note": "Merit Scholar, Top 5% of Cohort",
         "logo": "/generic-art-school-logo.png"
-      },
-      {
-        "degree": "Diploma in Computer Engineering",
-        "institution": "SVKM's Mukesh Patel School of Technology Management",
-        "year": "January 2019 - December 2021",
-        "logo": "/generic-military-logo.png"
       }
     ],
     "skills": [
-      "Machine Learning",
-      "AI Development",
-      "Full-Stack Development",
-      "Data Science",
+      "Agentic AI",
+      "LLM Pipelines",
+      "RAG",
+      "RLHF",
+      "MLOps",
+      "Full-Stack",
       "Research",
-      "Python Programming",
-      "Web Development",
-      "Data Analysis"
+      "Technical Writing"
     ]
   },
   "technicalSkills": {
-    "development": ["Python", "JavaScript", "C", "C++", "React", "Node.js", "HTML", "CSS", "Bootstrap"],
-    "design": ["Figma", "Photoshop", "Adobe After Effects", "UI/UX Design"],
-    "uxMethods": ["TensorFlow", "PyTorch", "LangChain", "HuggingFace", "LlamaIndex", "Power BI", "Pandas", "NumPy"],
-    "softSkills": [
-      "Research",
-      "Technical Writing",
-      "Team Leadership",
-      "Content Creation",
-      "Public Speaking",
-      "Mentoring"
+    "ai": [
+      "PyTorch",
+      "TensorFlow",
+      "LangChain",
+      "LlamaIndex",
+      "Hugging Face",
+      "RAG Pipelines",
+      "Transformer Fine-tuning",
+      "Vector DBs",
+      "Qdrant",
+      "Scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "SHAP"
+    ],
+    "infra": [
+      "FastAPI",
+      "Docker",
+      "Kubernetes",
+      "Redis",
+      "Celery",
+      "Airflow",
+      "MLflow",
+      "AWS",
+      "Google Cloud",
+      "Prometheus",
+      "Grafana",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "stack": [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "C++",
+      "SQL",
+      "Bash",
+      "WebAssembly",
+      "REST APIs",
+      "Power BI",
+      "DAX"
+    ],
+    "data": [
+      "Pandas",
+      "NumPy",
+      "ETL Pipelines",
+      "Statistical Modeling",
+      "Hypothesis Testing",
+      "A/B Testing",
+      "Cross-Validation",
+      "Feature Engineering",
+      "Time-Series",
+      "Forecasting",
+      "Data Storytelling"
     ]
   },
   "publications": {
     "research": [
       {
-        "title": "Automated Classification of Musical Genres: A Machine Learning Approach with Random Forest and Feature Engineering",
-        "type": "Research Paper",
-        "publisher": "Springer ICRTCIS 2024 proceedings (Algorithms for Intelligent Systems series)",
-        "period": "December 2023 - May 2024",
-        "description": "Published research on automated classification of musical genres using Random Forest and feature engineering techniques.",
+        "title": "Age of Agentic AI: Building Machines That Think, Decide & Act",
+        "type": "Book · Co-Author",
+        "publisher": "Amazon · 2026",
+        "period": "Jan 2026",
+        "description": "Co-authored a practitioner's guide on intent-driven agent execution, tool-use orchestration, and multi-agent collaboration patterns for production autonomous systems — written for working ML and backend engineers.",
+        "url": "https://www.amazon.com/dp/B0GM24QV7D/ref=sr_1_2",
+        "asin": "B0GM24QV7D",
+        "logo": "/nng-logo.png"
+      },
+      {
+        "title": "Automated Classification of Musical Genres",
+        "type": "Research Paper · Peer-Reviewed",
+        "publisher": "Springer ICRTCIS 2024 · Algorithms for Intelligent Systems",
+        "period": "Dec 2024",
+        "description": "Engineered a Random Forest classifier with audio feature engineering (MFCCs, RMS, spectral centroid, zero-crossing rate) achieving 80.12% accuracy across 10 genres on GTZAN — outperforming CNN-RNN (56.4%) and ANN (64.06%) baselines.",
+        "url": "https://link.springer.com/chapter/10.1007/978-981-97-7632-0_7",
         "isbn": {
           "hardcover": "978-981-97-7631-3",
           "ebook": "978-981-97-7632-0"
         },
+        "doi": "10.1007/978-981-97-7632-0_7",
         "logo": "/generic-art-school-logo.png"
       }
     ],
     "articles": [
       {
-        "title": "Welcome to the AI Wonderland Series",
+        "title": "AI Wonderland — Demystifying LLMs & Generative AI",
         "type": "Technical Writing",
         "platform": "Medium",
-        "period": "2024 - Present",
-        "description": "Initiated a series of articles aimed at demystifying complex AI concepts, focusing on LLMs and Generative AI.",
+        "period": "2024 — Present",
+        "description": "An ongoing series breaking down agentic AI, LLM internals, and Generative AI patterns for working engineers.",
         "url": "https://medium.com/@samarthborade007",
         "logo": "/nng-logo.png"
       },
       {
-        "title": "Power BI Articles Series",
+        "title": "Power BI Series — Featured Author",
         "type": "Technical Writing",
-        "platform": "Medium",
-        "period": "2023",
-        "description": "Published a series with ~16.8k views; featured by the Microsoft Power BI publication.",
-        "views": "16.8k",
-        "featured": "Microsoft Power BI publication",
+        "platform": "Medium · Microsoft Power BI Publication",
+        "period": "2023 — Present",
+        "description": "Data visualization and BI series featured by the official Microsoft Power BI publication.",
+        "views": "16.8K",
+        "featured": "Microsoft Power BI Publication",
         "url": "https://medium.com/@samarthborade007",
         "logo": "/generic-military-logo.png"
       }
     ],
     "skills": [
-      "Research & Development",
+      "Agentic AI Research",
       "Technical Writing",
       "Machine Learning Research",
-      "AI Content Creation",
-      "Data Science Communication",
+      "Data Storytelling",
       "Academic Publishing"
     ]
   }

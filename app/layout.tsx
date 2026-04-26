@@ -1,24 +1,48 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { VT323, Press_Start_2P, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { ScrollProgressIndicator } from "@/components/scroll-progress-indicator"
 import { AnimationProvider } from "@/contexts/animation-context"
+import { SmoothScroll } from "@/components/smooth-scroll"
+import { CustomCursor } from "@/components/custom-cursor"
 import { getMetaInfo } from "@/lib/data"
 
-const inter = Inter({ subsets: ["latin"] })
+const sans = VT323({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: "400",
+  display: "swap",
+})
+
+const display = Press_Start_2P({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: "400",
+  display: "swap",
+})
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+})
 
 const metaInfo = getMetaInfo()
 
 export const metadata: Metadata = {
   title: metaInfo.title,
   description: metaInfo.description,
-    generator: 'v0.app',
-    icons: {
-      icon: "/sb.ico",
-      shortcut: "/sb.ico",
-      apple: "/sb.ico",
-    },
+  generator: "Next.js",
+  icons: {
+    icon: "/sb.ico",
+    shortcut: "/sb.ico",
+    apple: "/sb.ico",
+  },
+  openGraph: {
+    title: metaInfo.title,
+    description: metaInfo.description,
+    type: "website",
+  },
 }
 
 export default function RootLayout({
@@ -27,11 +51,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+      <body className="bg-term text-phos antialiased scanlines">
+        <div className="scanbeam" aria-hidden />
         <AnimationProvider>
-          <ScrollProgressIndicator />
-          {children}
+          <SmoothScroll>
+            <CustomCursor />
+            {children}
+          </SmoothScroll>
         </AnimationProvider>
       </body>
     </html>

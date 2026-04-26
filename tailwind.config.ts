@@ -53,6 +53,47 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // CRT terminal palette
+        term: {
+          DEFAULT: "#0a0e0a",
+          50: "#161b16",
+          100: "#0e120e",
+          200: "#0a0e0a",
+          300: "#050805",
+        },
+        phos: {
+          DEFAULT: "#39ff7c",
+          50: "#7dffae",
+          100: "#39ff7c",
+          200: "#1cd45f",
+          300: "#0c8a3d",
+          400: "#06521f",
+        },
+        amber: {
+          DEFAULT: "#ffb000",
+          50: "#ffd24d",
+          100: "#ffb000",
+          200: "#cc8c00",
+        },
+        blood: {
+          DEFAULT: "#ff3b3b",
+          50: "#ff7878",
+          100: "#ff3b3b",
+          200: "#cc2424",
+        },
+        // Legacy aliases (so any unrewritten component stays compiling)
+        paper: "#0a0e0a",
+        ink: "#39ff7c",
+        cobalt: "#39ff7c",
+        cinnabar: "#ff3b3b",
+        sun: "#ffb000",
+        bone: "#39ff7c",
+        citrus: "#39ff7c",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "VT323", "JetBrains Mono", "ui-monospace", "monospace"],
+        display: ["var(--font-display)", '"Press Start 2P"', "VT323", "ui-monospace", "monospace"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "monospace"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -68,10 +109,26 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "blob-spin": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: "marquee 40s linear infinite",
+        "marquee-slow": "marquee 80s linear infinite",
+        "fade-up": "fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both",
+        "blob-spin": "blob-spin 30s linear infinite",
       },
       transitionDelay: {
         "100": "100ms",

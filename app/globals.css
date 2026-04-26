@@ -3,75 +3,281 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 240 10% 4%;
-  --card-foreground: 0 0% 100%;
-  --popover: 240 10% 4%;
-  --popover-foreground: 0 0% 100%;
-  --primary: 186 100% 50%;
-  --primary-foreground: 0 0% 0%;
-  --secondary: 240 5% 10%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 240 5% 20%;
-  --muted-foreground: 240 5% 65%;
-  --accent: 240 5% 15%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 100% 50%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 240 5% 26%;
-  --input: 240 5% 26%;
-  --ring: 186 100% 50%;
+  /* Shadcn token map — terminal system */
+  --background: 120 18% 5%; /* term */
+  --foreground: 138 100% 61%; /* phos */
+  --card: 120 18% 5%;
+  --card-foreground: 138 100% 61%;
+  --popover: 120 18% 5%;
+  --popover-foreground: 138 100% 61%;
+  --primary: 138 100% 61%; /* phos */
+  --primary-foreground: 120 18% 5%;
+  --secondary: 120 18% 8%;
+  --secondary-foreground: 138 100% 61%;
+  --muted: 120 18% 10%;
+  --muted-foreground: 138 30% 50%;
+  --accent: 41 100% 50%; /* amber */
+  --accent-foreground: 120 18% 5%;
+  --destructive: 0 100% 62%; /* blood */
+  --destructive-foreground: 120 18% 5%;
+  --border: 138 60% 28%;
+  --input: 138 60% 28%;
+  --ring: 138 100% 61%;
+  --radius: 0px;
 }
 
 html {
-  scroll-behavior: smooth;
-  /* Adding scroll padding to account for fixed header */
-  scroll-padding-top: 6rem; /* 96px to account for header height */
+  scroll-padding-top: 6rem;
+  background-color: #0a0e0a;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 body {
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0e0a;
+  color: #39ff7c;
+  font-family: var(--font-sans), VT323, "JetBrains Mono", ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  body a,
+  body button,
+  body [role="button"],
+  body input,
+  body textarea {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: #39ff7c;
+  color: #0a0e0a;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Custom Scrollbar */
-  .scrollbar-thin {
-    scrollbar-width: thin;
+  .text-pretty {
+    text-wrap: pretty;
   }
 
-  .scrollbar-thumb-zinc-700::-webkit-scrollbar-thumb {
-    background-color: #3f3f46;
-    border-radius: 3px;
+  /* === DISPLAY: Press Start 2P (8-bit pixel) — sized SMALL because it's wide === */
+  .display-xl {
+    font-family: var(--font-display), "Press Start 2P", VT323, monospace;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 4.4vw, 4.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+  .display-lg {
+    font-family: var(--font-display), "Press Start 2P", VT323, monospace;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2.4vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  .display-md {
+    font-family: var(--font-display), "Press Start 2P", VT323, monospace;
+    font-weight: 400;
+    font-size: clamp(0.85rem, 1.4vw, 1.2rem);
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  .display-sm {
+    font-family: var(--font-display), "Press Start 2P", VT323, monospace;
+    font-weight: 400;
+    font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: uppercase;
   }
 
-  .scrollbar-track-zinc-800\/50::-webkit-scrollbar-track {
-    background-color: rgba(39, 39, 42, 0.5);
+  /* === Body / VT323 retro mono === */
+  .body-mono {
+    font-family: var(--font-sans), VT323, monospace;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+  .body-mono-lg {
+    font-family: var(--font-sans), VT323, monospace;
+    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+    line-height: 1.2;
   }
 
+  /* === Tiny mono label === */
+  .label-mono {
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .label-mono-sm {
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.6rem;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* === Phosphor glow text === */
+  .glow {
+    text-shadow:
+      0 0 1px currentColor,
+      0 0 4px rgba(57, 255, 124, 0.65),
+      0 0 14px rgba(57, 255, 124, 0.35);
+  }
+  .glow-amber {
+    text-shadow:
+      0 0 1px currentColor,
+      0 0 4px rgba(255, 176, 0, 0.55),
+      0 0 14px rgba(255, 176, 0, 0.3);
+  }
+  .glow-blood {
+    text-shadow:
+      0 0 1px currentColor,
+      0 0 4px rgba(255, 59, 59, 0.6),
+      0 0 14px rgba(255, 59, 59, 0.3);
+  }
+
+  /* === CRT scanline overlay (apply on body) === */
+  .scanlines {
+    position: relative;
+  }
+  .scanlines::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.0) 0px,
+      rgba(0, 0, 0, 0.0) 2px,
+      rgba(0, 0, 0, 0.18) 3px,
+      rgba(0, 0, 0, 0.0) 4px
+    );
+    mix-blend-mode: multiply;
+  }
+  .scanlines::after {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 71;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  /* === Hard phosphor borders === */
+  .term-border {
+    border: 1px solid #0c8a3d;
+  }
+  .term-border-2 {
+    border: 2px solid #1cd45f;
+  }
+  .term-divide > * + * {
+    border-top: 1px solid #0c8a3d;
+  }
+
+  /* === Blinking cursor / caret === */
+  .blink::after {
+    content: "▋";
+    margin-left: 0.25em;
+    color: #39ff7c;
+    animation: blink 1.05s steps(2) infinite;
+  }
+  .blink-slim::after {
+    content: "_";
+    margin-left: 0.1em;
+    animation: blink 1.05s steps(2) infinite;
+  }
+
+  /* === Hide native scrollbar === */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  /* === Scrollbar === */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
-
   ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: #0a0e0a;
   }
-
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
+    background: #1cd45f;
+    border: 2px solid #0a0e0a;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+  /* === ALIASES so unported components keep working === */
+  .ink-border {
+    border: 1px solid #0c8a3d;
   }
+  .ink-border-2 {
+    border: 2px solid #1cd45f;
+  }
+  .stripe-caution {
+    background-image: repeating-linear-gradient(
+      135deg,
+      #ffb000 0px,
+      #ffb000 12px,
+      #0a0e0a 12px,
+      #0a0e0a 24px
+    );
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 0.99; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
+.flicker { animation: flicker 6s linear infinite; }
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+.scanbeam {
+  pointer-events: none;
+  position: fixed;
+  left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to bottom, transparent, rgba(57,255,124,0.18), transparent);
+  z-index: 72;
+  animation: scan 7s linear infinite;
 }
 
 @layer base {
@@ -83,19 +289,23 @@ body {
   }
 }
 
-/* Add animation for glowing effects */
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
+/* === Marquee keyframes used by velocity-marquee === */
+@keyframes ticker-blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
 }
+.animate-ticker { animation: ticker-blink 1.6s ease-in-out infinite; }
 
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+/* === Sticker rotation pulse === */
+@keyframes sticker-bob {
+  0%, 100% { transform: rotate(var(--r, -8deg)) translateY(0); }
+  50% { transform: rotate(calc(var(--r, -8deg) + 2deg)) translateY(-4px); }
+}
+.animate-sticker { animation: sticker-bob 5s ease-in-out infinite; }
+
+/* === Split-flap card flip === */
+@keyframes split-flip {
+  0% { transform: rotateX(0); }
+  50% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0); }
 }

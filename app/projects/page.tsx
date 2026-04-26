@@ -1,81 +1,123 @@
-import { GlobeIcon, ArrowLeft } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { ProjectCard } from "@/components/project-card"
-import { getAllProjects } from "@/lib/data"
-import { AnimatedSection } from "@/components/animated-section"
-import { PortfolioHeader } from "@/components/portfolio-header"
-import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
+import Image from "next/image"
 import Link from "next/link"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { getAllProjects } from "@/lib/data"
+import { NavMinimal } from "@/components/nav-minimal"
+import { FooterMinimal } from "@/components/footer-minimal"
+import { Sticker } from "@/components/sticker"
 
 export default function ProjectsPage() {
   const projects = getAllProjects()
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      {/* Background Grid Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
+    <main id="top" className="relative min-h-screen bg-term text-phos">
+      <NavMinimal />
 
-      {/* Header */}
-      <PortfolioHeader />
-
-      <div className="relative z-10 container mx-auto p-3 sm:p-4 pt-20 sm:pt-24 pb-6 sm:pb-8">
-        {/* Back Button */}
-        <AnimatedSection animation="fade-in">
+      <section className="px-4 pt-28 sm:px-6 sm:pt-32">
+        <div className="mx-auto max-w-[1600px]">
+          {/* Back chip */}
           <Link
             href="/"
-            className="inline-flex items-center text-xs sm:text-sm text-zinc-400 hover:text-white mb-4 sm:mb-6 transition-colors"
+            data-cursor="HOME"
+            className="ink-border inline-flex items-center gap-2 bg-paper px-3 py-1.5 label-mono text-ink hover:bg-sun transition-colors"
           >
-            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-            Back to Portfolio
+            <ArrowLeft className="h-3.5 w-3.5" /> INDEX
           </Link>
-        </AnimatedSection>
 
-        {/* Page Header */}
-        <AnimatedSection animation="fade-up">
-          <div className="mb-8 sm:mb-12">
-            <div className="flex items-center mb-4">
-              <GlobeIcon className="w-6 h-6 mr-3 text-cyan-400" />
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">All Projects</h1>
+          {/* Header card */}
+          <div className="ink-border-2 mt-4 grid grid-cols-12 divide-x-2 divide-ink bg-paper">
+            <div className="col-span-2 sm:col-span-1 flex items-center justify-center bg-cinnabar p-3 text-paper">
+              <span className="font-display text-3xl leading-none">A</span>
             </div>
-            <p className="text-zinc-400 text-sm sm:text-base max-w-2xl">
-              A comprehensive collection of my academic projects, research work, and technical implementations spanning
-              AI/ML, full-stack development, and data science.
-            </p>
+            <div className="col-span-10 sm:col-span-7 flex items-center px-4 sm:px-6 py-4">
+              <h1 className="display-md text-ink">
+                ARCHIVE <span className="text-cobalt">/</span> ALL CASE FILES
+              </h1>
+            </div>
+            <div className="col-span-12 sm:col-span-4 flex items-center justify-between bg-ink px-4 py-3 text-paper sm:px-6">
+              <span className="label-mono">{projects.length} TOTAL</span>
+              <span className="label-mono text-sun">★ SHIPPED</span>
+            </div>
           </div>
-        </AnimatedSection>
 
-        {/* Projects Grid */}
-        <AnimatedSection animation="fade-up" delay={100}>
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-            <CardContent className="p-4 sm:p-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                {projects.map((project, index) => (
-                  <AnimatedSection key={project.id} animation="zoom-in" delay={100 * (index + 1)}>
-                    <ProjectCard
-                      title={project.title}
-                      category={project.category}
-                      image={project.thumbnailImage}
-                      slug={project.slug}
-                    />
-                  </AnimatedSection>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </AnimatedSection>
+          {/* Tagline strip */}
+          <div className="ink-border-2 mt-3 bg-paper p-5 sm:p-8">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <p className="font-display text-3xl leading-[0.95] text-ink sm:text-4xl lg:text-5xl max-w-3xl">
+                COMPLETE ARCHIVE — AGENTIC AI, ML PLATFORMS, PRODUCTION MODELS, NLP &amp;
+                <span className="text-cobalt"> ANALYTICS.</span>
+              </p>
+              <Sticker color="sun" rotate={-6}>★ NEW DROPS · 2026</Sticker>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <AnimatedSection
-          animation="fade-in"
-          delay={500}
-          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500"
-        >
-          <p>© {new Date().getFullYear()} Samarth Borade. All rights reserved.</p>
-        </AnimatedSection>
-      </div>
+      {/* Card grid */}
+      <section className="px-4 py-12 pb-24 sm:px-6">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="ink-border-2 grid grid-cols-1 divide-x-2 divide-y-2 divide-ink bg-paper sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, i) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                data-cursor="OPEN"
+                className="group relative flex h-full flex-col bg-paper transition-colors hover:bg-sun"
+              >
+                {/* Image */}
+                <div className="relative aspect-[5/3] w-full overflow-hidden border-b-2 border-ink">
+                  <Image
+                    src={project.thumbnailImage || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute left-3 top-3 flex items-center gap-2">
+                    <span className="ink-border bg-paper px-2 py-1 label-mono-sm text-ink">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {project.featured && (
+                      <span className="ink-border bg-cinnabar px-2 py-1 label-mono-sm text-paper">
+                        ★ FEATURED
+                      </span>
+                    )}
+                  </div>
+                  <div className="absolute right-3 bottom-3 flex h-10 w-10 items-center justify-center bg-cobalt text-paper ink-border-2 transition-all duration-500 group-hover:rotate-45 group-hover:bg-ink">
+                    <span className="font-display text-2xl leading-none">↗</span>
+                  </div>
+                </div>
 
-      {/* Scroll to Top Button */}
-      <EnhancedScrollIndicator />
+                {/* Body */}
+                <div className="flex flex-1 flex-col gap-3 p-5">
+                  <div className="flex items-center justify-between label-mono">
+                    <span className="text-cobalt">{project.category}</span>
+                    <span className="text-ink/55">{project.year ?? "—"}</span>
+                  </div>
+                  <h3 className="font-display text-2xl leading-[0.95] text-ink sm:text-3xl text-balance">
+                    {project.title.replace(/^(.*?)( — | - )/, "$1 / ")}
+                  </h3>
+                  <p className="line-clamp-3 text-sm text-ink/70">
+                    {project.shortDescription}
+                  </p>
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-3 border-t-2 border-ink">
+                    {project.technologies.slice(0, 4).map((t) => (
+                      <span
+                        key={t}
+                        className="ink-border bg-paper px-2 py-0.5 label-mono-sm text-ink/80 group-hover:bg-ink group-hover:text-paper"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FooterMinimal />
     </main>
   )
 }

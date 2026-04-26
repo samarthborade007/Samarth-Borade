@@ -25,12 +25,227 @@ export interface Project {
   client?: string
   timeline: string
   role: string
+  year?: string
+  featured?: boolean
   liveUrl?: string
   githubUrl?: string
   relatedProjects?: RelatedProject[]
 }
 
 const projects: Project[] = [
+  {
+    id: 0,
+    slug: "neuralops-multiagent-framework",
+    title: "NeuralOps — Multi-Agent LLM Orchestration Framework",
+    category: "Agentic AI · Infrastructure",
+    shortDescription:
+      "Stateful multi-agent system with persistent memory, async queues, and full MLOps observability for agentic workflows.",
+    description: [
+      "NeuralOps is a production-grade multi-agent orchestration framework. I architected a stateful LangGraph system with dynamic tool-routing and persistent long-term memory in Qdrant — agents decompose tasks into sub-agent calls with shared memory and automatic rollback on failure.",
+      "The runtime ships with a Celery + Redis async queue handling 1,000+ concurrent agent runs, and a Prometheus + Grafana observability stack tracking token spend, p95 latency, and hallucination flags.",
+      "Built end-to-end with full MLOps discipline applied to agentic workflows — the kind of infrastructure you actually want behind a customer-facing AI product."
+    ],
+    features: [
+      "LangGraph stateful multi-agent orchestration",
+      "Persistent long-term memory via Qdrant vector store",
+      "Dynamic tool-routing with automatic rollback on failure",
+      "Async execution: 1,000+ concurrent agent runs (Celery + Redis)",
+      "Observability: token spend, p95 latency, hallucination flags",
+      "Containerized with Docker; Prometheus + Grafana dashboards"
+    ],
+    technologies: [
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "GPT-4o",
+      "Claude 3.5",
+      "Qdrant",
+      "Redis",
+      "Celery",
+      "Docker",
+      "Prometheus",
+      "Grafana"
+    ],
+    coverImage: "/finance-dashboard-cover.png",
+    thumbnailImage: "/finance-dashboard-cover.png",
+    timeline: "Dec 2024 — Mar 2025",
+    year: "2025",
+    role: "Architect & Lead Engineer",
+    featured: true,
+    relatedProjects: [
+      {
+        slug: "dashexai-ml-platform",
+        title: "DashExAI — Intelligent ML Analytics Platform",
+        category: "ML Platform",
+        image: "/finance-dashboard-screen1.png"
+      },
+      {
+        slug: "omni-ai-website-generator",
+        title: "OMNI.ai — Website Generator",
+        category: "AI / Full-Stack",
+        image: "/omni-logo.png"
+      }
+    ]
+  },
+  {
+    id: 7,
+    slug: "dashexai-ml-platform",
+    title: "DashExAI — Intelligent ML Analytics Platform",
+    category: "ML Platform · Full-Stack",
+    shortDescription:
+      "Full-stack ML platform supporting 6+ model families with automated feature engineering, EDA, and one-click deployment.",
+    description: [
+      "DashExAI is a full-stack ML platform I built supporting 6+ model families — ARIMA, Prophet, XGBoost, K-Means, DBSCAN, and more — with automated feature engineering, model training, evaluation, and one-click deployment.",
+      "It includes an automated EDA pipeline with SHAP-based feature importance across 20+ chart types, cutting analyst data prep from hours to under 5 minutes.",
+      "Designed for stakeholders who want to query data in plain English and ship models without writing notebook glue."
+    ],
+    features: [
+      "6+ model families: ARIMA, Prophet, XGBoost, K-Means, DBSCAN",
+      "Automated feature engineering & cross-validated training",
+      "Automated EDA with SHAP feature importance (20+ chart types)",
+      "Natural-language to data analysis via LangChain",
+      "One-click deployment workflow",
+      "Built with Next.js + FastAPI + MLflow"
+    ],
+    technologies: [
+      "Python",
+      "Next.js",
+      "TypeScript",
+      "Scikit-learn",
+      "XGBoost",
+      "MLflow",
+      "LangChain",
+      "Pandas",
+      "Recharts",
+      "SHAP"
+    ],
+    coverImage: "/finance-dashboard-screen1.png",
+    thumbnailImage: "/finance-dashboard-screen1.png",
+    timeline: "Jan 2025 — Apr 2025",
+    year: "2025",
+    role: "Full-Stack ML Engineer",
+    featured: true,
+    relatedProjects: [
+      {
+        slug: "neuralops-multiagent-framework",
+        title: "NeuralOps — Multi-Agent Framework",
+        category: "Agentic AI",
+        image: "/finance-dashboard-cover.png"
+      },
+      {
+        slug: "churnguard-revenue-risk",
+        title: "ChurnGuard — Churn Prediction System",
+        category: "ML / Production",
+        image: "/finance-dashboard-screen3.png"
+      }
+    ]
+  },
+  {
+    id: 8,
+    slug: "churnguard-revenue-risk",
+    title: "ChurnGuard — Churn Prediction & Revenue Risk System",
+    category: "Production ML · MLOps",
+    shortDescription:
+      "XGBoost + LightGBM ensemble achieving 91.3% AUC-ROC with SHAP explanations and automated retraining via Airflow.",
+    description: [
+      "ChurnGuard is a production churn prediction system I built on the IBM Telco dataset (7K customers). The XGBoost + LightGBM ensemble achieves 91.3% AUC-ROC vs. logistic regression's 78.2%, flagging $240K of at-risk monthly revenue per cohort.",
+      "Deployed a FastAPI inference endpoint with SHAP explanations for every prediction, and automated weekly retraining via Airflow with Evidently AI data-drift detection — maintaining statistical significance and model selection quality across production cohorts.",
+      "End-to-end MLOps: experiment tracking with MLflow, containerized with Docker, persisted to PostgreSQL."
+    ],
+    features: [
+      "91.3% AUC-ROC ensemble (XGBoost + LightGBM)",
+      "SHAP-based explainability for every inference",
+      "Automated weekly retraining via Airflow",
+      "Evidently AI data-drift monitoring",
+      "FastAPI production inference endpoint",
+      "$240K at-risk monthly revenue surfaced per cohort"
+    ],
+    technologies: [
+      "Python",
+      "XGBoost",
+      "LightGBM",
+      "SHAP",
+      "MLflow",
+      "Evidently AI",
+      "FastAPI",
+      "Airflow",
+      "Docker",
+      "PostgreSQL"
+    ],
+    coverImage: "/finance-dashboard-screen3.png",
+    thumbnailImage: "/finance-dashboard-screen3.png",
+    timeline: "Mar 2025 — Apr 2025",
+    year: "2025",
+    role: "ML Engineer",
+    featured: true,
+    relatedProjects: [
+      {
+        slug: "dashexai-ml-platform",
+        title: "DashExAI — ML Platform",
+        category: "ML Platform",
+        image: "/finance-dashboard-screen1.png"
+      },
+      {
+        slug: "retailiq-ecommerce-bi",
+        title: "RetailIQ — E-Commerce BI",
+        category: "Analytics / BI",
+        image: "/modern-finance-overview.png"
+      }
+    ]
+  },
+  {
+    id: 9,
+    slug: "retailiq-ecommerce-bi",
+    title: "RetailIQ — E-Commerce Sales Intelligence",
+    category: "Analytics · BI",
+    shortDescription:
+      "C-suite BI on 100K+ Olist orders — SQL/dbt on BigQuery, Airflow ETL, Power BI dashboards driving an 18% drop in late delivery.",
+    description: [
+      "RetailIQ is an executive analytics suite I built on the Olist E-Commerce dataset (100K+ orders). I modeled the data with SQL and dbt on BigQuery, orchestrated ETL pipelines with Airflow plus data-governance checks, and identified 3 underperforming categories driving 23% of returns.",
+      "Designed a C-suite Power BI dashboard with DAX KPI measures, Power Query transforms, trend & variance analysis, and segmentation — delivering recommendations that reduced late delivery rate by 18%.",
+      "Pure data storytelling: from raw warehouse to actionable boardroom narrative."
+    ],
+    features: [
+      "100K+ orders modeled with SQL + dbt on BigQuery",
+      "Airflow ETL with data-governance checks",
+      "Power BI dashboard with DAX KPI measures",
+      "Trend, variance & segmentation analysis",
+      "Identified 3 categories driving 23% of returns",
+      "Delivered an 18% reduction in late delivery rate"
+    ],
+    technologies: [
+      "SQL",
+      "Python",
+      "dbt",
+      "BigQuery",
+      "Power BI",
+      "DAX",
+      "Power Query",
+      "Pandas",
+      "Seaborn",
+      "Airflow"
+    ],
+    coverImage: "/modern-finance-overview.png",
+    thumbnailImage: "/modern-finance-overview.png",
+    timeline: "Mar 2025 — Apr 2025",
+    year: "2025",
+    role: "Data Analyst & BI Engineer",
+    featured: false,
+    relatedProjects: [
+      {
+        slug: "churnguard-revenue-risk",
+        title: "ChurnGuard — Churn Prediction",
+        category: "Production ML",
+        image: "/finance-dashboard-screen3.png"
+      },
+      {
+        slug: "dashexai-ml-platform",
+        title: "DashExAI — ML Platform",
+        category: "ML Platform",
+        image: "/finance-dashboard-screen1.png"
+      }
+    ]
+  },
   {
     id: 1,
     slug: "omni-ai-website-generator",
@@ -66,7 +281,9 @@ const projects: Project[] = [
     coverImage: "/omni-logo.png",
     thumbnailImage: "/omni-logo.png",
     timeline: "November 2024 - March 2025",
+    year: "2024",
     role: "Full-Stack Developer & AI Integration Specialist",
+    featured: true,
     githubUrl: "https://drive.google.com/file/d/1ikQS_efMTBtczdI70U9cSGGCqTG6B0Md/view?usp=sharing",
     relatedProjects: [
       {
@@ -107,8 +324,10 @@ const projects: Project[] = [
     coverImage: "/synthmaster-cover.png",
     thumbnailImage: "/modern-finance-overview.png",
     timeline: "August 2024 - September 2024",
+    year: "2024",
     role: "AI Engineer & Tool Developer",
-  githubUrl: "https://drive.google.com/file/d/1Php0f9mEwawmufCecT2iaoyZsH7fNBfN/view",
+    featured: true,
+    githubUrl: "https://drive.google.com/file/d/1Php0f9mEwawmufCecT2iaoyZsH7fNBfN/view",
   relatedProjects: [
       {
         slug: "datasculptor-cleaning-tool",
@@ -148,8 +367,9 @@ const projects: Project[] = [
     coverImage: "/datasculptor-cover.png",
     thumbnailImage: "/modern-apparel-storefront.png",
     timeline: "June 2024 - July 2024",
+    year: "2024",
     role: "Data Scientist & ML Engineer",
-    
+    featured: true,
     relatedProjects: [
       {
         slug: "synthmaster-dataset-tool",
@@ -189,8 +409,9 @@ const projects: Project[] = [
     coverImage: "/chatzilla-cover.png",
     thumbnailImage: "/job-finder-screen2.png",
     timeline: "April 2024",
+    year: "2024",
     role: "NLP Developer & Data Analyst",
-      githubUrl: "https://drive.google.com/file/d/1kWaOuKQ2q5zM8zNeoyqgyALNAH5jXnyE/view",
+    githubUrl: "https://drive.google.com/file/d/1kWaOuKQ2q5zM8zNeoyqgyALNAH5jXnyE/view",
 
     relatedProjects: [
       {
@@ -231,6 +452,7 @@ const projects: Project[] = [
     coverImage: "/who-voice-cover.png",
     thumbnailImage: "/job-finder-screen3.png",
     timeline: "February 2024",
+    year: "2024",
     role: "ML Engineer & Audio Processing Specialist",
     githubUrl: "https://drive.google.com/file/d/1YZ1e2EUTG4upNHysxorLZ-pqscVYzE6F/view",
     relatedProjects: [
@@ -273,6 +495,7 @@ const projects: Project[] = [
     thumbnailImage: "/job-finder-screen4.png",
     client: "GATI & ECU Worldwide",
     timeline: "December 2022 - January 2023",
+    year: "2023",
     role: "Data Scientist & Business Analyst",
     relatedProjects: [
       {
@@ -295,6 +518,10 @@ export { projects }
 
 export function getAllProjects(): Project[] {
   return projects
+}
+
+export function getFeaturedProjects(): Project[] {
+  return projects.filter((p) => p.featured)
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {

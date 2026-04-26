@@ -1,14 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { SkillTag } from "@/components/skill-tag"
+import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react"
 import { getProjectBySlug } from "@/lib/data"
 import { notFound } from "next/navigation"
-import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
-import { AnimatedSection } from "@/components/animated-section"
-import { PortfolioHeader } from "@/components/portfolio-header"
+import { NavMinimal } from "@/components/nav-minimal"
+import { FooterMinimal } from "@/components/footer-minimal"
+import { Reveal, RevealText } from "@/components/reveal"
 
 interface ProjectPageProps {
   params: {
@@ -24,205 +21,245 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      {/* Background Grid Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
+    <main id="top" className="relative min-h-screen bg-term text-phos">
+      <NavMinimal />
 
-      {/* Header */}
-      <PortfolioHeader />
-
-      <div className="relative z-10 container mx-auto p-3 sm:p-4 pt-20 sm:pt-24 pb-6 sm:pb-8">
-        {/* Back Button */}
-        <AnimatedSection animation="fade-in">
+      {/* Title block */}
+      <section className="relative px-6 pb-16 pt-32 sm:px-10 sm:pt-40">
+        <div className="mx-auto max-w-[1600px]">
           <Link
-            href="/"
-            className="inline-flex items-center text-xs sm:text-sm text-zinc-400 hover:text-white mb-4 sm:mb-6 transition-colors"
+            href="/projects"
+            data-cursor="BACK"
+            className="ink-border inline-flex items-center gap-2 bg-paper px-3 py-1.5 label-mono text-ink hover:bg-sun transition-colors"
           >
-            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-            Back to Portfolio
+            <ArrowLeft className="h-3.5 w-3.5" /> ALL CASE FILES
           </Link>
-        </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-          {/* Project Header */}
-          <AnimatedSection animation="fade-up" className="lg:col-span-3">
-            <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm overflow-hidden">
-              <div className="relative h-48 sm:h-64 md:h-80 w-full">
-                <Image
-                  src={project.coverImage || "/placeholder.svg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4 sm:p-6">
-                  <div className="text-xs sm:text-sm text-cyan-400 mb-1 sm:mb-2">{project.category}</div>
-                  <h1 className="text-xl sm:text-3xl md:text-4xl font-bold">{project.title}</h1>
-                  <p className="text-sm text-zinc-400 mt-1 sm:mt-2 max-w-2xl">{project.shortDescription}</p>
-                </div>
+          {/* Title card */}
+          <div className="ink-border-2 mt-4 grid grid-cols-12 divide-x-2 divide-ink bg-paper">
+            <div className="col-span-3 sm:col-span-2 flex items-center justify-center bg-cobalt p-4 text-paper">
+              <span className="font-display text-4xl sm:text-6xl leading-none">★</span>
+            </div>
+            <div className="col-span-9 sm:col-span-7 flex flex-col justify-center gap-2 px-4 py-4 sm:px-6">
+              <div className="flex flex-wrap items-center gap-2 label-mono">
+                <span className="ink-border bg-cinnabar px-2 py-1 text-paper">{project.category}</span>
+                <span className="ink-border bg-paper px-2 py-1 text-ink">{project.year ?? project.timeline}</span>
               </div>
-            </Card>
-          </AnimatedSection>
-
-          {/* Project Content */}
-          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-            <AnimatedSection animation="fade-up" delay={100}>
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Overview</h2>
-                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-zinc-300">
-                    {project.description.map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
-                  </div>
-
-                  <AnimatedSection animation="fade-up" delay={200}>
-                    <h3 className="text-base sm:text-lg font-bold mt-6 sm:mt-8 mb-2 sm:mb-3">Key Features</h3>
-                    <ul className="list-disc pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base text-zinc-300">
-                      {project.features.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                      ))}
-                    </ul>
-                  </AnimatedSection>
-
-                  <AnimatedSection animation="fade-up" delay={300}>
-                    <h3 className="text-base sm:text-lg font-bold mt-6 sm:mt-8 mb-2 sm:mb-3">Technologies Used</h3>
-                    <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                      {project.technologies.map((tech, index) => (
-                        <SkillTag key={index}>{tech}</SkillTag>
-                      ))}
-                    </div>
-                  </AnimatedSection>
-
-                  <AnimatedSection animation="fade-up" delay={400}>
-                    <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 sm:mt-8">
-                      {project.liveUrl && (
-                        <Button
-                          asChild
-                          size="sm"
-                          className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-xs sm:text-sm"
-                        >
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                            View Live Project
-                          </a>
-                        </Button>
-                      )}
-                      {project.githubUrl && (
-                        <Button asChild variant="outline" size="sm" className="text-xs sm:text-sm bg-transparent">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                            View Demo
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </AnimatedSection>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            {/* Project Gallery */}
-            {project.gallery && project.gallery.length > 0 && (
-              <AnimatedSection animation="fade-up" delay={200}>
-                <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                  <CardContent className="p-4 sm:p-6">
-                    <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Gallery</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                      {project.gallery.map((image, index) => (
-                        <AnimatedSection key={index} animation="zoom-in" delay={100 * (index + 1)}>
-                          <div className="relative h-40 sm:h-48 rounded-lg overflow-hidden border border-zinc-800">
-                            <Image
-                              src={image.url || "/placeholder.svg"}
-                              alt={image.caption || `Gallery image ${index + 1}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        </AnimatedSection>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            )}
+              <h1 className="display-md text-ink text-balance">
+                {project.title}
+              </h1>
+            </div>
+            <div className="col-span-12 sm:col-span-3 flex items-center justify-between bg-amber px-4 py-3 text-term sm:px-6">
+              <span className="label-mono opacity-70">SLUG</span>
+              <span className="label-mono truncate max-w-[12rem]">{project.slug}</span>
+            </div>
           </div>
 
-          {/* Project Sidebar */}
-          <div className="space-y-4 sm:space-y-6">
-            <AnimatedSection animation="slide-left" delay={100}>
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Details</h2>
+          <p className="mt-6 max-w-3xl body-mono-lg text-phos glow text-balance">
+            {"> "}{project.shortDescription}
+          </p>
+        </div>
+      </section>
 
-                  <div className="space-y-3 sm:space-y-4">
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-medium text-zinc-400">Client</h3>
-                      <p className="text-sm sm:text-base">{project.client || "Personal Project"}</p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-medium text-zinc-400">Timeline</h3>
-                      <p className="text-sm sm:text-base">{project.timeline}</p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-medium text-zinc-400">Role</h3>
-                      <p className="text-sm sm:text-base">{project.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            {/* Next Projects */}
-            <AnimatedSection animation="slide-left" delay={200}>
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">More Projects</h2>
-                  <div className="space-y-3 sm:space-y-4">
-                    {project.relatedProjects &&
-                      project.relatedProjects.map((related, index) => (
-                        <AnimatedSection key={index} animation="fade-up" delay={100 * (index + 1)}>
-                          <Link href={`/projects/${related.slug}`} className="block group">
-                            <div className="flex items-center gap-2 sm:gap-3">
-                              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden flex-shrink-0">
-                                <Image
-                                  src={related.image || "/placeholder.svg"}
-                                  alt={related.title}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                              <div>
-                                <h3 className="text-sm sm:text-base font-medium group-hover:text-cyan-400 transition-colors">
-                                  {related.title}
-                                </h3>
-                                <p className="text-xs text-zinc-400">{related.category}</p>
-                              </div>
-                            </div>
-                          </Link>
-                        </AnimatedSection>
-                      ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+      {/* Cover image */}
+      <section className="px-6 sm:px-10">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mt-3">
+            <div className="relative aspect-[16/9] w-full overflow-hidden ink-border-2 bg-paper">
+              <Image
+                src={project.coverImage || "/placeholder.svg"}
+                alt={project.title}
+                fill
+                priority
+                sizes="(min-width: 1280px) 1600px, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Footer */}
-        <AnimatedSection
-          animation="fade-in"
-          delay={500}
-          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500"
-        >
-          <p>© {new Date().getFullYear()} Samarth Borade. All rights reserved.</p>
-        </AnimatedSection>
-      </div>
+      {/* Body grid */}
+      <section className="px-6 py-24 sm:px-10 sm:py-32">
+        <div className="mx-auto max-w-[1600px] grid grid-cols-12 gap-10">
+          {/* Sidebar */}
+          <aside className="col-span-12 md:col-span-3 md:sticky md:top-32 md:self-start ink-border-2 bg-paper divide-y-2 divide-ink">
+            <Meta label="ROLE" value={project.role} />
+            <Meta label="TIMELINE" value={project.timeline} />
+            {project.client && <Meta label="CLIENT" value={project.client} />}
+            <div className="p-4">
+              <div className="label-mono text-ink/55 mb-3">STACK</div>
+              <div className="flex flex-wrap gap-1.5">
+                {project.technologies.map((t) => (
+                  <span
+                    key={t}
+                    className="ink-border bg-paper px-2 py-1 label-mono-sm text-ink hover:bg-sun transition-colors"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            {(project.liveUrl || project.githubUrl) && (
+              <div className="divide-y-2 divide-ink">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="OPEN"
+                    className="group flex items-center justify-between bg-cobalt px-4 py-3 text-paper transition-colors hover:bg-cinnabar"
+                  >
+                    <span className="label-mono">LIVE PREVIEW</span>
+                    <ExternalLink className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="DEMO"
+                    className="group flex items-center justify-between bg-ink px-4 py-3 text-paper transition-colors hover:bg-sun hover:text-ink"
+                  >
+                    <span className="label-mono">SOURCE / DEMO</span>
+                    <ExternalLink className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                  </a>
+                )}
+              </div>
+            )}
+          </aside>
 
-      {/* Scroll to Top Button */}
-      <EnhancedScrollIndicator />
+          {/* Main */}
+          <div className="col-span-12 md:col-span-9 space-y-3">
+            {/* Overview */}
+            <div className="term-border-2 bg-term p-6 sm:p-8">
+              <div className="flex items-center justify-between border-b border-phos-300 pb-3 mb-5">
+                <span className="label-mono text-amber glow-amber">{"// OVERVIEW.MD"}</span>
+                <span className="label-mono text-phos-300">{project.description.length} BLOCKS</span>
+              </div>
+              <div className="space-y-4">
+                {project.description.map((p, i) => (
+                  <p
+                    key={i}
+                    className={
+                      i === 0
+                        ? "body-mono-lg text-phos glow max-w-3xl"
+                        : "body-mono text-phos-100 max-w-3xl"
+                    }
+                  >
+                    {i === 0 && <span className="text-amber">{"$ "}</span>}
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Features */}
+            <div className="term-border-2 bg-term">
+              <div className="flex items-center justify-between border-b border-phos-300 bg-amber px-5 py-3 text-term">
+                <span className="label-mono">{"// WHAT_IT_DOES"}</span>
+                <span className="label-mono">{project.features.length} BEATS</span>
+              </div>
+              <ul className="divide-y divide-phos-300">
+                {project.features.map((f, i) => (
+                  <li key={i} className="group grid grid-cols-12 gap-3 px-5 py-3 transition-all duration-300 hover:bg-amber hover:translate-x-1">
+                    <span className="col-span-2 sm:col-span-1 label-mono text-amber glow-amber group-hover:text-term group-hover:[text-shadow:none]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="col-span-10 sm:col-span-11 body-mono text-phos group-hover:text-term">
+                      {"> "}{f}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Gallery */}
+            {project.gallery && project.gallery.length > 0 && (
+              <div className="ink-border-2 bg-paper p-5">
+                <div className="label-mono text-cinnabar mb-4">/ GALLERY</div>
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                  {project.gallery.map((image, idx) => (
+                    <div
+                      key={idx}
+                      className="relative aspect-[4/3] overflow-hidden ink-border-2 bg-paper"
+                    >
+                      <Image
+                        src={image.url || "/placeholder.svg"}
+                        alt={image.caption || `Gallery image ${idx + 1}`}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Related */}
+      {project.relatedProjects && project.relatedProjects.length > 0 && (
+        <section className="px-4 py-16 sm:px-6 sm:py-24">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="ink-border-2 grid grid-cols-12 divide-x-2 divide-ink bg-paper">
+              <div className="col-span-2 sm:col-span-1 flex items-center justify-center bg-cinnabar p-3 text-paper">
+                <span className="font-display text-3xl leading-none">→</span>
+              </div>
+              <div className="col-span-10 sm:col-span-11 flex items-center px-4 sm:px-6">
+                <h2 className="display-md text-ink">
+                  KEEP <span className="text-cobalt">/</span> EXPLORING
+                </h2>
+              </div>
+            </div>
+            <div className="ink-border-2 mt-3 grid grid-cols-1 divide-x-2 divide-y-2 divide-ink bg-paper sm:grid-cols-2 sm:divide-y-0">
+              {project.relatedProjects.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  href={`/projects/${rel.slug}`}
+                  data-cursor="NEXT"
+                  className="group flex items-center justify-between gap-5 bg-paper p-5 transition-colors hover:bg-sun sm:p-6"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="relative h-20 w-28 shrink-0 overflow-hidden ink-border-2">
+                      <Image
+                        src={rel.image || "/placeholder.svg"}
+                        alt={rel.title}
+                        fill
+                        sizes="112px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <div className="label-mono text-cobalt">{rel.category}</div>
+                      <h3 className="font-display text-2xl leading-[0.95] text-ink text-balance">
+                        {rel.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center bg-ink text-paper ink-border-2 transition-all duration-500 group-hover:rotate-45 group-hover:bg-cobalt">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <FooterMinimal />
     </main>
+  )
+}
+
+function Meta({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex flex-col gap-1 px-4 py-3">
+      <span className="label-mono-sm text-ink/55">{label}</span>
+      <span className="label-mono text-ink">{value}</span>
+    </div>
   )
 }
